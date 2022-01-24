@@ -14,14 +14,9 @@
 
 const endpoint = 'https://us-central1-ss-devops.cloudfunctions.net/rand?min=1&max=300'
 
-let botao = document.getElementById('test')
-
-botao.addEventListener('onclick', getNumber)
-
-function getNumber() {
-    const number = document.getElementById('input').value;
-    fetch(endpoint).then(response => response.json()).then(console.log)
+const getNumber = async() => {
+    const inputNumber = document.getElementById('input').value;
+    const data = await fetch(endpoint)
+    const returnedNumber = await data.json()
+    console.log(returnedNumber)
 }
-
-
-
