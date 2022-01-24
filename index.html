@@ -7,21 +7,26 @@
 
     <link rel="stylesheet" href="css/style.css">
 
-    <title>Guess game</title>
+    <title>Guess Game</title>
 </head>
 <body>
     <main class="container">
-        <h1 class="title">Adivinhe o número</h1>
+        
+        <h1 class="title">QUAL É O NÚMERO?</h1>
 
-        <div class="row">
-            <div class="inputbox">
-                <input type="number" id="input" required>
-                <label for="number">Número de 0 a 100</label>
-            </div>
-
+        <div>
+            <h3 id="test"></h3>
+            <h1 id="display"></h1>
+            <button onclick="startGame()">NOVA PARTIDA</button>
         </div>
-        <div class="row">
-            <button onclick="getNumber()">TESTE</button>
+
+        <div>
+            <input type="number" id="input" min="1" max="300" required>
+            <button onclick="testNumber()">ENVIAR</button>
+        </div>
+
+        <div >
+            
         </div>
     </main>
 
