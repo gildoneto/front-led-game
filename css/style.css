@@ -1,0 +1,21 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    margin: auto;
+    width: 365px;
+    height: 588px;
+    background-image: linear-gradient(#eeeeee,#ffffff);
+}
+
+.title {
+    margin: auto;
+    width: 248px;
+    height: 35px;
+    color: linear-gradient(#EF6C00,#DB6300);
+}
+
+.title > p {
+    color: linear-gradient(#EF6C00,#DB6300);
+}

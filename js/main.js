@@ -20,20 +20,6 @@ let gameNumber = null
 let test = document.getElementById('test')
 let display = document.getElementById('display')
 
-const startGame = async() => {
-    inputNumber = 0
-    gameNumber = 0
-    display.innerText = '0'
-
-    const data = await fetch(endpoint)
-    if(data.status == 502){
-        display.innerText = 'ERRO 502'
-    } else {
-        const returnedNumber = await data.json()
-        gameNumber = returnedNumber.value
-        console.log(gameNumber)
-    }
-}
 
 const assignNumber = () => {
     inputNumber = document.getElementById('input').value;
@@ -53,8 +39,28 @@ const displayTest = (inputNumber, gameNumber) => {
     }
 }
 
+const startGame = async() => {
+    inputNumber = 0
+    gameNumber = 0
+    display.innerText = '0'
+
+    const data = await fetch(endpoint)
+    if(data.status == 502){
+        display.innerText = 'ERRO 502'
+    } else {
+        const returnedNumber = await data.json()
+        gameNumber = returnedNumber.value
+        console.log(gameNumber)
+    }
+}
+
 const testNumber = () => {
     assignNumber()
-    displayNumber()
-    displayTest(inputNumber, gameNumber)
+    if (inputNumber < 1 || inputNumber > 300){
+        test.innerText = 'Digite um número entre 1 e 300'
+    } else {
+        displayNumber()
+        displayTest(inputNumber, gameNumber)
+    }
+
 }
