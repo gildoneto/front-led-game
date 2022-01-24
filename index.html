@@ -7,13 +7,24 @@
 
     <link rel="stylesheet" href="css/style.css">
 
-    <title>Document</title>
+    <title>Guess game</title>
 </head>
 <body>
-    <section>
+    <main class="container">
+        <h1 class="title">Adivinhe o número</h1>
 
-    </section>
+        <div class="row">
+            <div class="inputbox">
+                <input type="number" id="input" required>
+                <label for="number">Número de 0 a 100</label>
+            </div>
 
-    <script src="js/index.js"></script>
+        </div>
+        <div class="row">
+            <button onclick="getNumber()">TESTE</button>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
