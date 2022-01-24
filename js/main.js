@@ -19,9 +19,8 @@ let botao = document.getElementById('test')
 botao.addEventListener('onclick', getNumber)
 
 function getNumber() {
-    const number = document.getElementById('input').value
-    fetch(endpoint).then(console.log)
-    alert(number)
+    const number = document.getElementById('input').value;
+    fetch(endpoint).then(response => response.json()).then(console.log)
 }
 
 
