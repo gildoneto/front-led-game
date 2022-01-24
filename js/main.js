@@ -42,14 +42,16 @@ const displayTest = (inputNumber, gameNumber) => {
 const startGame = async() => {
     inputNumber = 0
     gameNumber = 0
-    display.innerText = '0'
 
     const data = await fetch(endpoint)
     if(data.status == 502){
-        display.innerText = 'ERRO 502'
+        test.innerText = 'Ocorreu um erro. Tente novamente.'
+        display.innerText = '502'
     } else {
         const returnedNumber = await data.json()
         gameNumber = returnedNumber.value
+        display.innerText = '0'
+        test.innerText = 'Digite um número entre 1 e 300'
         console.log(gameNumber)
     }
 }
