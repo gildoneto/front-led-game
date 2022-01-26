@@ -1,21 +1,85 @@
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
     font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    box-sizing: content-box;
+}
+
+.d-none {
+    display: none !important;
 }
 
 .container {
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 365px;
     height: 588px;
     background-image: linear-gradient(#eeeeee,#ffffff);
 }
 
 .title {
-    margin: auto;
-    width: 248px;
-    height: 35px;
-    color: linear-gradient(#EF6C00,#DB6300);
+    margin-bottom: 96px;
 }
 
-.title > p {
-    color: linear-gradient(#EF6C00,#DB6300);
+p {
+    color: #EF6C00;
+    font-size: 24px;
 }
+
+#start{
+    margin-top: 56px;
+    width: 130px;
+    height: 42px;
+    background: linear-gradient(180deg, #434854 0%, #9E9E9E 100%);
+    border-radius: 4px;
+    color: white;
+}
+
+.send-number{
+   margin-top: 73px; 
+}
+
+#test{
+    font-size: 16px;
+}
+
+#input{
+    width: 217px;
+    height: 42px;
+    background: #F5F5F5;
+    border: 1px solid #CFCFCF;
+    box-sizing: border-box;
+    border-radius: 4px;
+    
+}
+
+#send{
+    width: 70px;
+    height: 42px;
+    background: #DDDDDD;
+    border-radius: 4px;
+    border: none;
+    font-size: 12px;
+    color: white;
+}
+
+.seven-segment svg .segment {
+    fill: rgb(221, 221, 221);
+  }
+
+  .seven-segment svg .segment.red {
+    fill: rgb(218, 91, 91);
+  }
+
+  .seven-segment svg .segment.green, .green {
+    fill: rgb(50, 191, 0);
+    color: rgb(50, 191, 0);
+  }
+
+  .seven-segment svg .segment.black {
+    fill: rgb(38, 42, 52);
+  }
