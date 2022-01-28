@@ -23,7 +23,7 @@ body {
 }
 
 .title {
-    
+    margin-bottom: 96px;
 }
 
 p {
@@ -43,6 +43,8 @@ p {
     font-size: 12px;
     line-height: 14px;
     color: #FFFFFF;
+
+    /* margin-bottom: 73px; */
 }
 
 #start-game-button:hover {
@@ -95,6 +97,10 @@ p {
 
 .orangered {
     color: rgb(255,102,0);
+}
+
+.seven-segment {
+    margin-bottom: 171px;
 }
 
 .seven-segment svg .segment, .gray {
