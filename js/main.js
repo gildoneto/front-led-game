@@ -7,6 +7,7 @@ const number1 = document.querySelectorAll("#number-1 use");
 const number2 = document.querySelectorAll("#number-2 use");
 
 let buttonStart = document.getElementById('start-game-button')
+let buttonSend = document.getElementById('send-game-button')
 
 let inputNumber = 0
 let gameNumber = 0
@@ -17,12 +18,31 @@ let numberInput = document.getElementById('number-input')
 
 handleNumber(0)
 
+const switchSendButton = (action) => {
+    
+    if (action === 'on') {
+        buttonSend.classList.remove('gray')
+        buttonSend.classList.add('orange')
+        buttonSend.disabled = false
+        numberInput.disabled = false
+    } else if (action === 'off') {
+        buttonSend.classList.add('gray')
+        buttonSend.classList.remove('orange')
+        buttonSend.disabled = true
+        numberInput.disabled = true
+    } else {
+        console.log('Erro no método switchSendButton()')
+    }
+
+}
+
 const startGame = async () => {
+    const data = await fetch(endpoint)
+    
     buttonStart.classList.add('d-none')
     inputNumber = 0
     gameNumber = 0
     numberInput.value = ''
-    const data = await fetch(endpoint)
     
     test.classList.remove('red')
     test.classList.remove('green')
@@ -32,11 +52,14 @@ const startGame = async () => {
         test.innerText = 'ERRO'
         handleNumber(502,'red')
         buttonStart.classList.remove('d-none')
+        switchSendButton('off')
     } else {
         const returnedNumber = await data.json()
         gameNumber = returnedNumber.value
         handleNumber(0)
-        test.innerText = 'Digite um número entre 1 e 300'
+        test.classList.add('orangered')
+        test.innerText = ''
+        switchSendButton('on')
         buttonStart.classList.add('d-none')
         console.log(gameNumber)
     }
@@ -61,6 +84,7 @@ const displayTest = (inputNumber, gameNumber) => {
         cor = 'green'
         test.classList.add('green')
         buttonStart.classList.remove('d-none')
+        switchSendButton('off')
     }
     handleNumber(inputNumber,cor)
 }
