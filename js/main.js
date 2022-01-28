@@ -6,16 +6,46 @@ const number0 = document.querySelectorAll("#number-0 use");
 const number1 = document.querySelectorAll("#number-1 use");
 const number2 = document.querySelectorAll("#number-2 use");
 
+let buttonStart = document.getElementById('start-game-button')
+
 let inputNumber = 0
 let gameNumber = 0
-let buttonStart = document.getElementById('start-game-button')
 
 let test = document.getElementById('test')
 let display = document.getElementById('display')
+let numberInput = document.getElementById('number-input')
 
+handleNumber(0)
+
+const startGame = async () => {
+    buttonStart.classList.add('d-none')
+    inputNumber = 0
+    gameNumber = 0
+    numberInput.value = ''
+    const data = await fetch(endpoint)
+    
+    test.classList.remove('red')
+    test.classList.remove('green')
+
+    if (data.status == 502) {
+        test.classList.add('red')
+        test.innerText = 'ERRO'
+        handleNumber(502,'red')
+        buttonStart.classList.remove('d-none')
+    } else {
+        const returnedNumber = await data.json()
+        gameNumber = returnedNumber.value
+        handleNumber(0)
+        test.innerText = 'Digite um número entre 1 e 300'
+        buttonStart.classList.add('d-none')
+        console.log(gameNumber)
+    }
+}
+
+startGame()
 
 const assignNumber = () => {
-    inputNumber = document.getElementById('number-input').value;
+    inputNumber = numberInput.value
 }
 
 const displayTest = (inputNumber, gameNumber) => {
@@ -35,33 +65,18 @@ const displayTest = (inputNumber, gameNumber) => {
     handleNumber(inputNumber,cor)
 }
 
-const startGame = async () => {
-    inputNumber = 0
-    gameNumber = 0
 
-    const data = await fetch(endpoint)
-    if (data.status == 502) {
-        test.innerText = 'Ocorreu um erro. Tente novamente.'
-        handleNumber(502,'red')
-        buttonStart.classList.remove('d-none')
-    } else {
-        const returnedNumber = await data.json()
-        gameNumber = returnedNumber.value
-        handleNumber(0)
-        test.innerText = 'Digite um número entre 1 e 300'
-        buttonStart.classList.add('d-none')
-        console.log(gameNumber)
-    }
-}
 
 const testNumber = () => {
+    
     assignNumber()
+    numberInput.value = ''
+
     if (inputNumber < 1 || inputNumber > 300) {
         test.innerText = 'Digite um número entre 1 e 300'
     } else {
         displayTest(inputNumber, gameNumber)
     }
-
 }
 
 function hideShowNumber(type, number) {
