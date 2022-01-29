@@ -18,6 +18,11 @@ let numberInput = document.getElementById('number-input')
 
 handleNumber(0)
 
+/**
+ * @function switchSendButton
+ * Habilita/desabilita o botão de enviar o palpite.
+ * @param {string} action - 'on' ou 'off'
+ */
 const switchSendButton = (action) => {
     
     if (action === 'on') {
@@ -36,6 +41,11 @@ const switchSendButton = (action) => {
 
 }
 
+/**
+ * @function startGame
+ * Recupera um número de 1 a 300 através do endpoint.
+ * Prepara para o início do jogo de palpites.
+ */
 const startGame = async () => {
     const data = await fetch(endpoint)
     
@@ -67,10 +77,22 @@ const startGame = async () => {
 
 startGame()
 
+/**
+ * @function assignNumber
+ * Associa o número digitado pelo usuário ao numberInput
+ */
 const assignNumber = () => {
     inputNumber = numberInput.value
 }
 
+/**
+ * @function displayTest
+ * Compara o número digitado pelo usuário.
+ * Exibe resultado se maior, menor ou acertou.
+ * Exibe número digitado no painel de 7 segmentos.
+ * @param {number} inputNumber 
+ * @param {number} gameNumber 
+ */
 const displayTest = (inputNumber, gameNumber) => {
     let cor = undefined
     test.classList.remove('green')
@@ -89,8 +111,11 @@ const displayTest = (inputNumber, gameNumber) => {
     handleNumber(inputNumber,cor)
 }
 
-
-
+/**
+ * @function testNumber
+ * Testa se o número digitado está entre 1 e 300,
+ * e se é maior, menor ou acertou.
+ */
 const testNumber = () => {
     
     assignNumber()
@@ -103,6 +128,12 @@ const testNumber = () => {
     }
 }
 
+/**
+ * @function hideShowNumber
+ * Exibe/esconde os números no painel de 7 segmentos
+ * @param {string} type 
+ * @param {number} number 
+ */
 function hideShowNumber(type, number) {
     switch (type) {
         case 'hide':
@@ -115,7 +146,13 @@ function hideShowNumber(type, number) {
     }
 }
 
-
+/**
+ * @function handleNumber
+ * Desenha os números no painel de 7 segmentos.
+ * 1 a 3 algarismos.
+ * @param {number} inputNumber 
+ * @param {string} cor 
+ */
 function handleNumber(inputNumber, cor) {
     cor = cor || 'black'
     let numberString = inputNumber.toString()
@@ -149,6 +186,13 @@ function handleNumber(inputNumber, cor) {
     }
 }
 
+/**
+ * @function lightNumber
+ * Desenha 1 algarismo de LED através no número informado.
+ * @param {NodeList} svg 
+ * @param {string} number 
+ * @param {string} color 
+ */
 function lightNumber(svg, number, color) {
     switch (number) {
         case '1':
@@ -184,6 +228,13 @@ function lightNumber(svg, number, color) {
     }
 }
 
+/**
+ * @function lightEach
+ * Ativa cada LED de acordo com o número de algarismos.
+ * @param {[number]} postions 
+ * @param {NodeList} svg 
+ * @param {string} color 
+ */
 function lightEach(postions, svg, color) {
     for (let i = 0; i < svg.length; i++) {
         const element = svg[i];
@@ -193,13 +244,3 @@ function lightEach(postions, svg, color) {
     }
     postions.forEach((i) => svg[i].classList.add(color));
 }
-
-document.getElementById('number-input').addEventListener('keyup', function (e) {
-    if (e.target.value > 300) {
-        e.preventDefault()
-        e.target.value = 300
-    } else if (e.target.value < 1) {
-        e.preventDefault()
-        e.target.value = 1
-    }
-})
