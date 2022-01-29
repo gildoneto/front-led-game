@@ -8,10 +8,6 @@ body {
     box-sizing: content-box;
 }
 
-.d-none {
-    display: none !important;
-}
-
 .container {
     display: flex;
     flex-direction: column;
@@ -19,14 +15,23 @@ body {
     width: 365px;
     height: 588px;
     background-image: linear-gradient(#eeeeee,#ffffff);
-    margin-bottom: 62px;
+    /* margin-bottom: 62px; */
+}
+
+.content {
+    height: 418px;
+}
+
+.d-none {
+    display: none !important;
 }
 
 .title {
-    margin-bottom: 96px;
+    width: 100%;
+    padding-bottom: 96px;
 }
 
-p {
+.title p {
     color: #EF6C00;
     font-size: 24px;
 }
@@ -41,15 +46,39 @@ p {
     font-style: normal;
     font-weight: bold;
     font-size: 12px;
-    line-height: 14px;
+    line-height: 24px;
     color: #FFFFFF;
 
-    /* margin-bottom: 73px; */
+}
+
+#start-game-button span {
+    height: 24px;
 }
 
 #start-game-button:hover {
     cursor: pointer;
     /* border: 2px solid #EF6C00; */
+}
+
+.send-number{
+   margin-top: 73px; 
+}
+
+#test{
+    font-size: 16px;
+}
+
+.input-wrapper {
+    width: 100%;
+}
+
+#number-input{
+    width: 217px;
+    height: 42px;
+    background: #F5F5F5;
+    border: 1px solid #CFCFCF;
+    box-sizing: border-box;
+    border-radius: 4px;
 }
 
 #send-game-button{
@@ -66,27 +95,6 @@ p {
     /* border: 2px solid #EF6C00; */
 }
 
-.send-number{
-   margin-top: 73px; 
-}
-
-#test{
-    font-size: 16px;
-}
-
-#input-wrapper {
-
-}
-
-#number-input{
-    width: 217px;
-    height: 42px;
-    background: #F5F5F5;
-    border: 1px solid #CFCFCF;
-    box-sizing: border-box;
-    border-radius: 4px;
-}
-
 .gray {
     background: rgb(221, 221, 221);
 }
@@ -100,7 +108,9 @@ p {
 }
 
 .seven-segment {
-    margin-bottom: 171px;
+    /* width: 183px; */
+    height: 100px;
+    padding-bottom: 73px;
 }
 
 .seven-segment svg .segment, .gray {
@@ -121,3 +131,25 @@ p {
   .seven-segment svg .segment.black {
     fill: rgb(38, 42, 52);
   }
+
+  @media (min-width: 720px) {
+    
+    .container {
+        
+        width: 1000px;
+    } 
+
+    .title p {
+        font-size: 36px;
+    }
+
+    .seven-segment {
+        width: 247px;
+        height: 135px;
+    }
+
+    .seven-segment svg #number-0 {
+        width: 74px;
+        /* height: 135px; */
+    }
+}

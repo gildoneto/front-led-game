@@ -1,98 +1,95 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
 
-    <title>Guess Game</title>
+  <title>Guess the Number</title>
 </head>
+
 <body>
-    <main class="container">
-        
-        <div class="title">
-            <p>QUAL É O NÚMERO?</p>
-        </div>
-        
+  <main class="container">
 
+    <div class="title">
+      <p>QUAL É O NÚMERO?</p>
+    </div>
+
+    <div class="content">
+      <div class="test-wrapper">
         <h3 id="test"></h3>
-        <div class="seven-segment">
-            <svg width="0" height="0" viewBox="0 0 0 0">
-                <defs>
-                  <g id="unit-h">
-                    <path d="M0 20 L20 40 L180 40 L200 20 L180 0 L20 0 Z"></path>
-                  </g>
-                  <g id="unit-v">
-                    <path d="M20 0 L0 20 L0 180 L20 200 L40 180 L40 20 Z"></path>
-                  </g>
-                </defs>
-              </svg>
-              <div>
-                <svg
-                  id="number-0"
-                  class="num-1"
-                  width="55"
-                  height="100"
-                  viewBox="0 0 260 480"
-                >
-                  <use xlink:href="#unit-h" class="segment a" x="30" y="0"></use>
-                  <use xlink:href="#unit-v" class="segment b" x="220" y="30"></use>
-                  <use xlink:href="#unit-v" class="segment c" x="220" y="250"></use>
-                  <use xlink:href="#unit-h" class="segment d" x="30" y="440"></use>
-                  <use xlink:href="#unit-v" class="segment e" x="0" y="250"></use>
-                  <use xlink:href="#unit-v" class="segment f" x="0" y="30"></use>
-                  <use xlink:href="#unit-h" class="segment g" x="30" y="220"></use>
-                </svg>
-                <svg
-                  id="number-1"
-                  class="num-2"
-                  width="55"
-                  height="100"
-                  viewBox="0 0 260 480"
-                >
-                  <use xlink:href="#unit-h" class="segment a" x="30" y="0"></use>
-                  <use xlink:href="#unit-v" class="segment b" x="220" y="30"></use>
-                  <use xlink:href="#unit-v" class="segment c" x="220" y="250"></use>
-                  <use xlink:href="#unit-h" class="segment d" x="30" y="440"></use>
-                  <use xlink:href="#unit-v" class="segment e" x="0" y="250"></use>
-                  <use xlink:href="#unit-v" class="segment f" x="0" y="30"></use>
-                  <use xlink:href="#unit-h" class="segment g" x="30" y="220"></use>
-                </svg>
-                <svg
-                  id="number-2"
-                  class="num-3"
-                  width="55"
-                  height="100"
-                  viewBox="0 0 260 480"
-                >
-                  <use xlink:href="#unit-h" class="segment a" x="30" y="0"></use>
-                  <use xlink:href="#unit-v" class="segment b" x="220" y="30"></use>
-                  <use xlink:href="#unit-v" class="segment c" x="220" y="250"></use>
-                  <use xlink:href="#unit-h" class="segment d" x="30" y="440"></use>
-                  <use xlink:href="#unit-v" class="segment e" x="0" y="250"></use>
-                  <use xlink:href="#unit-v" class="segment f" x="0" y="30"></use>
-                  <use xlink:href="#unit-h" class="segment g" x="30" y="220"></use>
-                </svg>
-              </div>
-            <button id="start-game-button" class="button" onclick="startGame()">NOVA PARTIDA</button>
-        </div>
+      </div>
 
-        <div id="input-wrapper">
-            <input type="number" id="number-input" name="number-input" placeholder="Digite o palpite">
-            <button id="send-game-button" class="button" onclick="testNumber()">ENVIAR</button>
+      <div class="seven-segment">
+        <svg width="0" height="0" viewBox="0 0 0 0">
+          <defs>
+            <g id="unit-h">
+              <path d="M0 20 L20 40 L180 40 L200 20 L180 0 L20 0 Z"></path>
+            </g>
+            <g id="unit-v">
+              <path d="M20 0 L0 20 L0 180 L20 200 L40 180 L40 20 Z"></path>
+            </g>
+          </defs>
+        </svg>
+        <div>
+          <svg id="number-0" class="num-1" width="55" height="100" viewBox="0 0 260 480">
+            <use xlink:href="#unit-h" class="segment a" x="30" y="0"></use>
+            <use xlink:href="#unit-v" class="segment b" x="220" y="30"></use>
+            <use xlink:href="#unit-v" class="segment c" x="220" y="250"></use>
+            <use xlink:href="#unit-h" class="segment d" x="30" y="440"></use>
+            <use xlink:href="#unit-v" class="segment e" x="0" y="250"></use>
+            <use xlink:href="#unit-v" class="segment f" x="0" y="30"></use>
+            <use xlink:href="#unit-h" class="segment g" x="30" y="220"></use>
+          </svg>
+          <svg id="number-1" class="num-2" width="55" height="100" viewBox="0 0 260 480">
+            <use xlink:href="#unit-h" class="segment a" x="30" y="0"></use>
+            <use xlink:href="#unit-v" class="segment b" x="220" y="30"></use>
+            <use xlink:href="#unit-v" class="segment c" x="220" y="250"></use>
+            <use xlink:href="#unit-h" class="segment d" x="30" y="440"></use>
+            <use xlink:href="#unit-v" class="segment e" x="0" y="250"></use>
+            <use xlink:href="#unit-v" class="segment f" x="0" y="30"></use>
+            <use xlink:href="#unit-h" class="segment g" x="30" y="220"></use>
+          </svg>
+          <svg id="number-2" class="num-3" width="55" height="100" viewBox="0 0 260 480">
+            <use xlink:href="#unit-h" class="segment a" x="30" y="0"></use>
+            <use xlink:href="#unit-v" class="segment b" x="220" y="30"></use>
+            <use xlink:href="#unit-v" class="segment c" x="220" y="250"></use>
+            <use xlink:href="#unit-h" class="segment d" x="30" y="440"></use>
+            <use xlink:href="#unit-v" class="segment e" x="0" y="250"></use>
+            <use xlink:href="#unit-v" class="segment f" x="0" y="30"></use>
+            <use xlink:href="#unit-h" class="segment g" x="30" y="220"></use>
+          </svg>
         </div>
+      </div>
 
-        <div >
-            
-        </div>
-    </main>
+      <div class="start-button-wrapper">
+        <button id="start-game-button" class="button" onclick="startGame()">
+          <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="refresh_24px">
+          <path id="icon/navigation/refresh_24px" d="M16.2364 7.7625C15.1482 6.675 13.6548 6 11.9962 6C8.67917 6 6 8.685 6 12C6 15.315 8.67917 18 11.9962 18C14.7955 18 17.1295 16.0875 17.7974 13.5H16.2364C15.621 15.2475 13.955 16.5 11.9962 16.5C9.51219 16.5 7.49343 14.4825 7.49343 12C7.49343 9.5175 9.51219 7.5 11.9962 7.5C13.242 7.5 14.3527 8.0175 15.1632 8.835L12.7467 11.25H18V6L16.2364 7.7625Z" fill="white"/>
+          </g>
+          </svg>
+          <span>NOVA PARTIDA</span> </button>
+      </div>
 
-    <script src="js/main.js"></script>
+    </div>
+
+    <div class="input-wrapper">
+      <input type="text" maxlength="3" id="number-input" name="number-input" placeholder="Digite o palpite"
+      onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;">
+      <button id="send-game-button" class="button" onclick="testNumber()">ENVIAR</button>
+    </div>
+
+  </main>
+
+  <script src="js/main.js"></script>
 </body>
+
 </html>
